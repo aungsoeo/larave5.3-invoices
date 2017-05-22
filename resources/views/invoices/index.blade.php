@@ -4,8 +4,15 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="clearfix">
-                <div class="panel-title">Invoices</div>
-                <a href="{{route('invoices.create')}}" class="btn btn-success pull-right">Create</a>
+                <div class="panel-title">
+                  <h1>Simple Invoice System</h1>
+                </div>
+                <br><br>
+                <div class="panle panel-default">
+                  <a href="{{route('invoices.create')}}" class="btn btn-success pull-right"> + Add Invoice</a>
+
+                  <input type="text" name="Search_box" ><button type="button" name="Search">Search</button>
+                </div>
 
             </div>
         </div>
@@ -14,22 +21,22 @@
             @if($invoices->count())
                 <table class="table table-striped">
                     <thead>
-                        <th>Invoice No.</th>
-                        <th>Grand Total</th>
-                        <th>Client</th>
-                        <th>Invoice Date</th>
-                        <th>Due Date</th>
-                        <th colspan="2">Create At</th>
-                        </thead>
+                        <th>Invoice Name</th>
+                        <th># of Items</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </thead>
                     <tbody>
                     @foreach($invoices as $invoice)
                         <tr>
                             <td>{{ $invoice->invoice_no }}</td>
-                            <td>{{ $invoice->grand_total }}</td>
                             <td>{{ $invoice->client }}</td>
-                            <td>{{ $invoice->due_date }}</td>
-                            <td>{{ $invoice->created_at->diffForHumans()}}</td>
-                            <td></td>
+                            <td>{{ $invoice->grand_total }}</td>
+                            <td>
+                              <a href="#" class="btn btn-success ">PDF</a>
+                              <a href="#" class="btn btn-danger "> Remove</a>
+                            </td>
+
                         </tr>
                     @endforeach
                     </tbody>

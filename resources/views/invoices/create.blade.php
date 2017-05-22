@@ -13,8 +13,8 @@
             <div class="panel-body">
                 @include('invoices.form')
             </div>
-            <div class="panel-footer">
-                <a href="{{ route('invoices.index') }}" class="btn btn-default">CANCEL</a>
+
+            <div class="panel-footer">                
                 <button class="btn btn-success" @click="create" :disabled="isProcessing">CREATE</button>
             </div>
         </div>
